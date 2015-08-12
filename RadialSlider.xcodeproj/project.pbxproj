@@ -7,12 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F470A3991B3999FB00449077 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A3981B3999FB00449077 /* AppDelegate.swift */; };
-		F470A39B1B3999FB00449077 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A39A1B3999FB00449077 /* ViewController.swift */; };
-		F470A39E1B3999FB00449077 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F470A39C1B3999FB00449077 /* Main.storyboard */; };
+		F470A3991B3999FB00449077 /* sdmAppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A3981B3999FB00449077 /* sdmAppDelegate.swift */; };
 		F470A3A01B3999FB00449077 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F470A39F1B3999FB00449077 /* Images.xcassets */; };
 		F470A3A31B3999FB00449077 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = F470A3A11B3999FB00449077 /* LaunchScreen.xib */; };
 		F470A3AF1B3999FB00449077 /* RadialSliderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A3AE1B3999FB00449077 /* RadialSliderTests.swift */; };
+		F470A3BB1B399AF200449077 /* sdmRootController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A3BA1B399AF200449077 /* sdmRootController.swift */; };
+		F470A3BE1B399B4000449077 /* Settings.json in Resources */ = {isa = PBXBuildFile; fileRef = F470A3BD1B399B4000449077 /* Settings.json */; };
+		F470A3C11B399B7500449077 /* sdmSegmentedRadialSlider.swift in Sources */ = {isa = PBXBuildFile; fileRef = F470A3C01B399B7500449077 /* sdmSegmentedRadialSlider.swift */; };
+		F4AC2D5A1B3A9782004103E1 /* sdmSegmentedRadialSliderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC2D591B3A9782004103E1 /* sdmSegmentedRadialSliderCell.swift */; };
+		F4AC2D5D1B3AC270004103E1 /* sdmMath.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4AC2D5C1B3AC270004103E1 /* sdmMath.swift */; };
+		F4B651AB1B41B11500F98904 /* sdmEffectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B651AA1B41B11500F98904 /* sdmEffectView.swift */; };
+		F4B651AD1B41B24000F98904 /* sdmEffectLayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4B651AC1B41B24000F98904 /* sdmEffectLayer.swift */; };
+		F4BD8CBF1B3D55C800AD40C2 /* sdmArcView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F4BD8CBE1B3D55C800AD40C2 /* sdmArcView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,14 +34,20 @@
 /* Begin PBXFileReference section */
 		F470A3931B3999FB00449077 /* RadialSlider.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RadialSlider.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F470A3971B3999FB00449077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F470A3981B3999FB00449077 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F470A39A1B3999FB00449077 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F470A39D1B3999FB00449077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		F470A3981B3999FB00449077 /* sdmAppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sdmAppDelegate.swift; sourceTree = "<group>"; };
 		F470A39F1B3999FB00449077 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		F470A3A21B3999FB00449077 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		F470A3A81B3999FB00449077 /* RadialSliderTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = RadialSliderTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F470A3AD1B3999FB00449077 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F470A3AE1B3999FB00449077 /* RadialSliderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RadialSliderTests.swift; sourceTree = "<group>"; };
+		F470A3BA1B399AF200449077 /* sdmRootController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmRootController.swift; sourceTree = "<group>"; };
+		F470A3BD1B399B4000449077 /* Settings.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Settings.json; sourceTree = "<group>"; };
+		F470A3C01B399B7500449077 /* sdmSegmentedRadialSlider.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmSegmentedRadialSlider.swift; sourceTree = "<group>"; };
+		F4AC2D591B3A9782004103E1 /* sdmSegmentedRadialSliderCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmSegmentedRadialSliderCell.swift; sourceTree = "<group>"; };
+		F4AC2D5C1B3AC270004103E1 /* sdmMath.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmMath.swift; sourceTree = "<group>"; };
+		F4B651AA1B41B11500F98904 /* sdmEffectView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmEffectView.swift; sourceTree = "<group>"; };
+		F4B651AC1B41B24000F98904 /* sdmEffectLayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmEffectLayer.swift; sourceTree = "<group>"; };
+		F4BD8CBE1B3D55C800AD40C2 /* sdmArcView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = sdmArcView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +89,10 @@
 		F470A3951B3999FB00449077 /* RadialSlider */ = {
 			isa = PBXGroup;
 			children = (
-				F470A3981B3999FB00449077 /* AppDelegate.swift */,
-				F470A39A1B3999FB00449077 /* ViewController.swift */,
-				F470A39C1B3999FB00449077 /* Main.storyboard */,
+				F470A3981B3999FB00449077 /* sdmAppDelegate.swift */,
+				F4AC2D5B1B3AC261004103E1 /* Include */,
+				F470A3B91B399ABB00449077 /* Controller */,
+				F470A3BF1B399B6000449077 /* View */,
 				F470A39F1B3999FB00449077 /* Images.xcassets */,
 				F470A3A11B3999FB00449077 /* LaunchScreen.xib */,
 				F470A3961B3999FB00449077 /* Supporting Files */,
@@ -90,6 +103,7 @@
 		F470A3961B3999FB00449077 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				F470A3BC1B399B1200449077 /* Resource */,
 				F470A3971B3999FB00449077 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -110,6 +124,42 @@
 				F470A3AD1B3999FB00449077 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		F470A3B91B399ABB00449077 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				F470A3BA1B399AF200449077 /* sdmRootController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		F470A3BC1B399B1200449077 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				F470A3BD1B399B4000449077 /* Settings.json */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		F470A3BF1B399B6000449077 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				F470A3C01B399B7500449077 /* sdmSegmentedRadialSlider.swift */,
+				F4AC2D591B3A9782004103E1 /* sdmSegmentedRadialSliderCell.swift */,
+				F4BD8CBE1B3D55C800AD40C2 /* sdmArcView.swift */,
+				F4B651AA1B41B11500F98904 /* sdmEffectView.swift */,
+				F4B651AC1B41B24000F98904 /* sdmEffectLayer.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		F4AC2D5B1B3AC261004103E1 /* Include */ = {
+			isa = PBXGroup;
+			children = (
+				F4AC2D5C1B3AC270004103E1 /* sdmMath.swift */,
+			);
+			path = Include;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +242,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F470A39E1B3999FB00449077 /* Main.storyboard in Resources */,
 				F470A3A31B3999FB00449077 /* LaunchScreen.xib in Resources */,
+				F470A3BE1B399B4000449077 /* Settings.json in Resources */,
 				F470A3A01B3999FB00449077 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,8 +262,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F470A39B1B3999FB00449077 /* ViewController.swift in Sources */,
-				F470A3991B3999FB00449077 /* AppDelegate.swift in Sources */,
+				F4BD8CBF1B3D55C800AD40C2 /* sdmArcView.swift in Sources */,
+				F4B651AB1B41B11500F98904 /* sdmEffectView.swift in Sources */,
+				F470A3BB1B399AF200449077 /* sdmRootController.swift in Sources */,
+				F4AC2D5D1B3AC270004103E1 /* sdmMath.swift in Sources */,
+				F470A3C11B399B7500449077 /* sdmSegmentedRadialSlider.swift in Sources */,
+				F4B651AD1B41B24000F98904 /* sdmEffectLayer.swift in Sources */,
+				F4AC2D5A1B3A9782004103E1 /* sdmSegmentedRadialSliderCell.swift in Sources */,
+				F470A3991B3999FB00449077 /* sdmAppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,14 +292,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		F470A39C1B3999FB00449077 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F470A39D1B3999FB00449077 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F470A3A11B3999FB00449077 /* LaunchScreen.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -411,6 +459,7 @@
 				F470A3B41B3999FB00449077 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		F470A3B51B3999FB00449077 /* Build configuration list for PBXNativeTarget "RadialSliderTests" */ = {
 			isa = XCConfigurationList;
@@ -419,6 +468,7 @@
 				F470A3B71B3999FB00449077 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

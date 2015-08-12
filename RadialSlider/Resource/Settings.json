@@ -1,0 +1,33 @@
+{
+    "items":[
+             {
+             "identifier":"com.spencers-dm.radialControl.light.hue",
+             "title":"H",
+             "icon":null,
+             "minimum-value":0.0,
+             "maximum-value":1.0,
+             "presentation-angle":30.0,
+             "background-image":"HSV-Hue_Slider.png"
+             },
+             
+             {
+             "identifier":"com.spencers-dm.radialControl.light.saturation",
+             "title":"S",
+             "icon":null,
+             "minimum-value":0.0,
+             "maximum-value":1.0,
+             "presentation-angle":150.0,
+             "background-image":null
+             },
+             
+             {
+             "identifier":"com.spencers-dm.radialControl.light.intensity",
+             "title":"V",
+             "icon":null,
+             "minimum-value":0.0,
+             "maximum-value":1.0,
+             "presentation-angle":270.0,
+             "background-image":null
+             }
+             ]
+}
