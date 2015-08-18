@@ -270,6 +270,7 @@ class SegmentedRadialSlider : UIControl
             {
                 self.sendActionsForControlEvents(UIControlEvents.TouchCancel)
                 self.endTrackingWithTouch(touch, withEvent: event)
+                
                 return false
             }
         }
@@ -300,7 +301,7 @@ class SegmentedRadialSlider : UIControl
                 arc = (arc < 0.05 ? 0.0 : arc)
                 arc = (arc > Double(self.sectorLockAngle - 0.05) ? Double(self.sectorLockAngle) : arc)
                 
-                println("\(self.sectorLockAngle), \(CGFloat(arc))")
+                // println("\(self.sectorLockAngle), \(CGFloat(arc))")
                 
                 
                 

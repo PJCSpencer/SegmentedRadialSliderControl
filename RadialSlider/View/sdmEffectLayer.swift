@@ -9,12 +9,11 @@
 import UIKit
 
 
-
 class EffectLayer : CAShapeLayer
 {
     // MARK: - Property(s)
     
-    @NSManaged var offset: CGFloat
+    var offset: CGFloat = 0.0
     
     
     // MARK: - 
@@ -28,18 +27,13 @@ class EffectLayer : CAShapeLayer
         // Super.
         super.init(layer: layer)
         
-        if layer.isKindOfClass(EffectLayer.self)
+        if let aLayer = layer as? EffectLayer
         {
-            if let aLayer = layer as? EffectLayer
-            {
-                self.offset = aLayer.offset
-            }
+            self.offset = aLayer.offset
         }
     }
 
-    required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-    }
+    required init(coder decoder: NSCoder) { super.init(coder: decoder) }
     
     
     // MARK: -
@@ -50,7 +44,7 @@ class EffectLayer : CAShapeLayer
         {
             let animation: CABasicAnimation = CABasicAnimation(keyPath: key)
             
-            animation.duration = 0.3
+            animation.duration = 0.35
             animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.7, 0.0, 0.2, 1.0)
             animation.fromValue = self.presentationLayer().valueForKey(key)
             
@@ -75,6 +69,5 @@ class EffectLayer : CAShapeLayer
         return super.needsDisplayForKey(key)
     }
 }
-
 
 

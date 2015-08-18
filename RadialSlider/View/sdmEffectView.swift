@@ -13,14 +13,11 @@ class EffectView : UIView
 {
     // MARK: - 
     
+    var locked: Bool = false
     private var _ramp: CGFloat = 0.0
     var ramp: CGFloat
     {
-        get
-        {
-            return self._ramp
-        }
-        
+        get { return self._ramp }
         set
         {
             if !self.locked
@@ -29,15 +26,12 @@ class EffectView : UIView
                 self._ramp = newValue > 1.0 ? 1.0 : newValue
                 
                 if let aLayer = self.layer as? EffectLayer
-                {
-                    aLayer.offset = self._ramp
-                }
+                { aLayer.offset = newValue }
                 
                 self.setNeedsDisplay()
             }
         }
     }
-    var locked: Bool = false
     
     var sourceRadius: CGFloat = 100.0
     var destinationRadius: CGFloat = 18.0
@@ -90,27 +84,27 @@ class EffectView : UIView
     // MARK: - 
     
     override class func layerClass() -> AnyClass { return EffectLayer.self }
+
     
-    
-    // MARK: - 
+    // MARK: -
     
     func setRamp(newValue: CGFloat, animated: Bool)
     {
         if animated
         {
             let animation: CABasicAnimation = CABasicAnimation(keyPath: "offset")
-            animation.duration = 3.0
+            animation.duration = 0.35
             animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.7, 0.0, 0.2, 1.0)
             animation.fromValue = self._ramp
-            animation.toValue = newValue
+            animation.toValue = 0.0
             
-            self.layer.addAnimation(animation, forKey: "offset")
+            self.layer.addAnimation(animation, forKey: nil)
         }
         else { self._ramp = newValue }
         
         if let aLayer = self.layer as? EffectLayer
         {
-            aLayer.offset = newValue
+            aLayer.offset = 0.0
         }
     }
     
@@ -123,6 +117,7 @@ class EffectView : UIView
         super.drawRect(rect)
         
         let context: CGContextRef  = UIGraphicsGetCurrentContext ()
+        CGContextSetFillColorWithColor(context, UIColor.cyanColor().CGColor)
         
         if self.locked && (self._ramp <= 0.0)
         {
@@ -132,9 +127,7 @@ class EffectView : UIView
                 self.sourceRadius,
                 self.sourceRadius));
             
-            CGContextSetFillColorWithColor(context, UIColor.yellowColor().CGColor)
             CGContextFillPath (context)
-            
             return
         }
         
@@ -200,13 +193,12 @@ class EffectView : UIView
             0.0,
             1)
         
-        CGContextSetFillColorWithColor(context, UIColor.yellowColor().CGColor);
         CGContextFillPath (context)
     }
     
     override func drawLayer(layer: CALayer!, inContext ctx: CGContext!) {
         
-        if let aLayer = self.layer as? EffectLayer
+        if let aLayer = layer as? EffectLayer
         {
             self._ramp = aLayer.offset
         }

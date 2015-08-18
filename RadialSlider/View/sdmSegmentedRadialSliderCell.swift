@@ -20,7 +20,6 @@ class SegmentedRadialSliderCell : UIView
         {
             self.value = newValue
         }
-        // println("\(self.value)")
     }
     var minimumValue: Float = 0.0
     var maximumValue: Float = 50.0
@@ -72,7 +71,7 @@ class SegmentedRadialSliderCell : UIView
         }
     }
     
-    final var arcLength: CGFloat = 0.4
+    final var arcLength: CGFloat = 0.3
     final var presentationAngle: CGFloat = 0.0
     final var trackingPath: CGPathRef?
     private var trackingPathLayer: CAShapeLayer?

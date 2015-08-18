@@ -7,7 +7,7 @@
              "minimum-value":0.0,
              "maximum-value":1.0,
              "presentation-angle":30.0,
-             "background-image":"HSV-Hue_Slider.png"
+             "background-image":null
              },
              
              {

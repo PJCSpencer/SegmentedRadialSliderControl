@@ -18,7 +18,7 @@ class ArcView : UIView
         willSet { self.shape.strokeStart = newValue }
     }
     
-    var endAngle: CGFloat = 1.0
+    var endAngle: CGFloat = 0.3
     {
         willSet { self.shape.strokeEnd = newValue }
     }
@@ -54,8 +54,8 @@ class ArcView : UIView
             _shape = CAShapeLayer()
             _shape!.fillColor = UIColor.clearColor().CGColor
             _shape!.strokeColor = UIColor.lightGrayColor().CGColor
-            _shape!.lineWidth = 4.0
-            _shape!.strokeEnd = 0.4 // TODO: Resolve ...
+            _shape!.lineWidth = self.lineWidth
+            _shape!.strokeEnd = self.endAngle
             _shape!.lineCap = kCALineCapRound
             _shape!.path = path
             

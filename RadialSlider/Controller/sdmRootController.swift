@@ -46,7 +46,6 @@ class RootController: UIViewController {
                     
                     var radialControl: SegmentedRadialSlider = SegmentedRadialSlider(cells: cells)
                     
-                    radialControl.backgroundColor = UIColor.cyanColor().colorWithAlphaComponent(0.25)
                     radialControl.center = CGPointMake(UIScreen.mainScreen().bounds.size.width * 0.5,
                         UIScreen.mainScreen().bounds.height * 0.5)
                     radialControl.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)

@@ -16,7 +16,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: - Property(s)
     
     var window: UIWindow?
-    var controller: RootController!
     
 
     // MARK: - UIApplicationDelegate Protocol
@@ -24,12 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication,
         didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-            self.controller = RootController(nibName: nil, bundle: nil)
+            let controller: RootController = RootController(nibName: nil, bundle: nil)
             
             self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
             
             self.window?.backgroundColor = UIColor.whiteColor()
-            self.window?.rootViewController = self.controller
+            self.window?.rootViewController = controller
             self.window?.makeKeyAndVisible()
             
             return true
