@@ -78,7 +78,7 @@ class EffectView : UIView
     
     // MARK: - NSCoding Protocol
     
-    required init(coder decoder: NSCoder) { super.init(coder: decoder) }
+    required init(coder decoder: NSCoder) { super.init(coder: decoder)! }
     
     
     // MARK: - 
@@ -116,7 +116,7 @@ class EffectView : UIView
         // Super.
         super.drawRect(rect)
         
-        let context: CGContextRef  = UIGraphicsGetCurrentContext ()
+        let context: CGContextRef  = UIGraphicsGetCurrentContext ()!
         CGContextSetFillColorWithColor(context, UIColor.cyanColor().CGColor)
         
         if self.locked && (self._ramp <= 0.0)
@@ -196,7 +196,7 @@ class EffectView : UIView
         CGContextFillPath (context)
     }
     
-    override func drawLayer(layer: CALayer!, inContext ctx: CGContext!) {
+    override func drawLayer(layer: CALayer, inContext ctx: CGContext) {
         
         if let aLayer = layer as? EffectLayer
         {

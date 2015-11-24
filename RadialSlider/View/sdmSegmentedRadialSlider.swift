@@ -85,7 +85,7 @@ class SegmentedRadialSlider : UIControl
     // MARK: - NSCoding Protocol
     
     required init(coder decoder: NSCoder) {
-        super.init(coder: decoder)
+        super.init(coder: decoder)!
     }
     
     
@@ -93,12 +93,9 @@ class SegmentedRadialSlider : UIControl
     
     final func cellWithTag() -> SegmentedRadialSliderCell?
     {
-        var cell: SegmentedRadialSliderCell?
-        
         // TODO: 
         
-        
-        return cell
+        return nil
     }
     
     
@@ -138,12 +135,12 @@ class SegmentedRadialSlider : UIControl
         {
             rect = CGRectMake(0.0, 0.0, radius + lineWith, radius + lineWith)
             
-            var path:CGMutablePathRef = CGPathCreateMutable()
+            let path:CGMutablePathRef = CGPathCreateMutable()
             CGPathAddEllipseInRect(path,
                 nil,
                 CGRectMake(rect.size.width - lineWith, (rect.size.height * 0.5) - (lineWith * 0.5), lineWith, lineWith))
             
-            var shape: CAShapeLayer = CAShapeLayer()
+            let shape: CAShapeLayer = CAShapeLayer()
             shape.fillColor = UIColor.cyanColor().CGColor
             shape.strokeColor = UIColor.clearColor().CGColor
             shape.path = path
@@ -170,12 +167,12 @@ class SegmentedRadialSlider : UIControl
     
     // MARK: - Tracking Touches and Redrawing Controls (UIControl)
     
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool {
+    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         
         if self.cellsView.subviews.count > 0
         {
             var angle: CGFloat!
-            var radius: CGFloat = CGFloat(self.requiredLockDistance * 1.1) // Offset a little.
+            let radius: CGFloat = CGFloat(self.requiredLockDistance * 1.1) // Offset a little.
             let margin: Double = 24.0
             let segment: CGFloat = CGFloat(Math.degreesToRadians(360.0 / Double(self.cellsView.subviews.count) - margin)) * 0.3
             var delay: NSTimeInterval = 0.0
@@ -210,7 +207,7 @@ class SegmentedRadialSlider : UIControl
         return true
     }
     
-    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) -> Bool {
+    override func continueTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
         
         let scale: CGFloat = 0.5
         let width: CGFloat = self.bounds.size.width
@@ -301,15 +298,6 @@ class SegmentedRadialSlider : UIControl
                 arc = (arc < 0.05 ? 0.0 : arc)
                 arc = (arc > Double(self.sectorLockAngle - 0.05) ? Double(self.sectorLockAngle) : arc)
                 
-                // println("\(self.sectorLockAngle), \(CGFloat(arc))")
-                
-                
-                
-                // arc < 0                  ==  variableLockAngle = sin/cos (angle.low)
-                // arc > sectorLockAngle    ==  variableLockAngle = sin/cos (angle.high)
-                
-                
-                
                 // Update GUI.
                 self.thumbView!.layer.transform = CATransform3DMakeRotation(self.variableLockAngle, 0, 0, 1)
                 
@@ -349,7 +337,7 @@ class SegmentedRadialSlider : UIControl
             
             
             // Contruct tracking path.
-            var path:CGMutablePathRef = CGPathCreateMutable()
+            let path:CGMutablePathRef = CGPathCreateMutable()
             CGPathMoveToPoint(path, nil, self.backgroundView!.bounds.size.width * 0.5, self.backgroundView!.bounds.size.height * 0.5)
             CGPathAddArc(path,
                 nil,
@@ -390,7 +378,7 @@ class SegmentedRadialSlider : UIControl
         return true
     }
     
-    override func endTrackingWithTouch(touch: UITouch, withEvent event: UIEvent) {
+    override func endTrackingWithTouch(touch: UITouch?, withEvent event: UIEvent?) {
 
         self.lockEnabled = false
         self.selectedCellIndex = -1

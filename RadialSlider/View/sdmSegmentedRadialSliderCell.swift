@@ -81,7 +81,7 @@ class SegmentedRadialSliderCell : UIView
     
     final func addTrackingPath(trackingRect: CGRect, radius: CGFloat, start: CGFloat, end: CGFloat)
     {
-        var path:CGMutablePathRef = CGPathCreateMutable()
+        let path:CGMutablePathRef = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, trackingRect.size.width * 0.5, trackingRect.size.height * 0.5)
         CGPathAddArc(path,
             nil,
@@ -94,20 +94,6 @@ class SegmentedRadialSliderCell : UIView
         CGPathAddLineToPoint(path, nil, trackingRect.size.width * 0.5, trackingRect.size.height * 0.5)
         
         self.trackingPath = path
-        
-        /*if self.trackingPathLayer == nil
-        {
-            self.trackingPathLayer = CAShapeLayer()
-            
-            self.trackingPathLayer?.frame = CGRectMake(0.0, 0.0, trackingRect.size.width, trackingRect.size.height)
-            self.trackingPathLayer?.borderWidth = 1
-            self.trackingPathLayer?.borderColor = UIColor.blackColor().CGColor
-            self.trackingPathLayer?.fillColor = UIColor.redColor().CGColor
-            self.trackingPathLayer?.strokeColor = UIColor.clearColor().CGColor
-            
-            self.layer.addSublayer(self.trackingPathLayer)
-        }
-        self.trackingPathLayer?.path = self.trackingPath*/
     }
     
     
@@ -127,7 +113,7 @@ class SegmentedRadialSliderCell : UIView
     // MARK: - NSCoding Protocol
     
     required init(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
+        super.init(coder: aDecoder)!
     }
     
     

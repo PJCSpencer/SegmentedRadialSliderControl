@@ -41,7 +41,7 @@ class ArcView : UIView
         
         if _shape == nil
         {
-            var path:CGMutablePathRef = CGPathCreateMutable()
+            let path:CGMutablePathRef = CGPathCreateMutable()
             CGPathAddArc(path,
                 nil,
                 width * 0.5,
@@ -59,7 +59,7 @@ class ArcView : UIView
             _shape!.lineCap = kCALineCapRound
             _shape!.path = path
             
-            self.layer.addSublayer(_shape)
+            self.layer.addSublayer(_shape!)
         }
         return _shape!
     }
@@ -78,7 +78,7 @@ class ArcView : UIView
     // MARK: - NSCoding Protocol
     
     required init(coder decoder: NSCoder) {
-        super.init(coder: decoder)
+        super.init(coder: decoder)!
     }
 }
 

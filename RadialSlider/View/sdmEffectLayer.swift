@@ -18,11 +18,11 @@ class EffectLayer : CAShapeLayer
     
     // MARK: - 
     
-    override init!() {
+    override init() {
         super.init()
     }
     
-    override init!(layer: AnyObject!) {
+    override init(layer: AnyObject) {
         
         // Super.
         super.init(layer: layer)
@@ -33,12 +33,12 @@ class EffectLayer : CAShapeLayer
         }
     }
 
-    required init(coder decoder: NSCoder) { super.init(coder: decoder) }
+    required init(coder decoder: NSCoder) { super.init(coder: decoder)! }
     
     
     // MARK: -
     
-    override func actionForKey(key: String!) -> CAAction! {
+    override func actionForKey(key: String) -> CAAction? {
         
         if key == "offset"
         {
@@ -46,7 +46,7 @@ class EffectLayer : CAShapeLayer
             
             animation.duration = 0.35
             animation.timingFunction = CAMediaTimingFunction(controlPoints: 0.7, 0.0, 0.2, 1.0)
-            animation.fromValue = self.presentationLayer().valueForKey(key)
+            animation.fromValue = self.presentationLayer()!.valueForKey(key)
             
             return animation
         }
@@ -58,7 +58,7 @@ class EffectLayer : CAShapeLayer
     
     // MARK: -
     
-    override class func needsDisplayForKey(key: String!) -> Bool {
+    override class func needsDisplayForKey(key: String) -> Bool {
     
         if key == "offset"
         {

@@ -15,49 +15,50 @@ class RootController: UIViewController {
     
     override func loadView() {
         
-        var root: UIView = UIView(frame: UIScreen.mainScreen().bounds)
-        root.backgroundColor = UIColor.whiteColor()
-        self.view = root;
+        self.view = UIView(frame: UIScreen.mainScreen().bounds)
+        self.view.backgroundColor = UIColor.whiteColor()
         
-        // Although an interesting thought this isn't an excercise in parsing json.
-        var error: NSError?
-        if let data : NSData = NSData(contentsOfFile: NSBundle.mainBundle().pathForResource("Settings", ofType: "json")!,
-            options: .DataReadingUncached,
-            error: &error)
+        // NB: Although an interesting thought this isn't an excercise in parsing json.
+        if let path = NSBundle.mainBundle().pathForResource("Settings", ofType: "json")
         {
-            if let json = NSJSONSerialization.JSONObjectWithData(data,
-                options: NSJSONReadingOptions.MutableContainers,
-                error: &error) as? [String:AnyObject]
-            {
-                if let items = json["items"] as? [AnyObject]
+            let data = NSData(contentsOfFile: path)
+            
+            do {
+            
+                if let json =  try NSJSONSerialization.JSONObjectWithData(data!,
+                    options: NSJSONReadingOptions.MutableContainers) as? [String:AnyObject]
                 {
-                    var cell: SegmentedRadialSliderCell!
-                    var cells: [SegmentedRadialSliderCell] = []
-                    
-                    for config in items
+                    if let items = json["items"] as? [AnyObject]
                     {
-                        cell = SegmentedRadialSliderCell(frame: CGRectMake(0.0, 0.0, 70.0, 70.0))
+                        var cell: SegmentedRadialSliderCell!
+                        var cells: [SegmentedRadialSliderCell] = []
                         
-                        cell.title = config["title"] as? String
-                        cell.presentationAngle = config["presentation-angle"] as! CGFloat
+                        for config in items
+                        {
+                            cell = SegmentedRadialSliderCell(frame: CGRectMake(0.0, 0.0, 70.0, 70.0))
+                            
+                            cell.title = config["title"] as? String
+                            cell.presentationAngle = config["presentation-angle"] as! CGFloat
+                            
+                            cells.append(cell)
+                        }
                         
-                        cells.append(cell)
+                        let radialControl: SegmentedRadialSlider = SegmentedRadialSlider(cells: cells)
+                        
+                        radialControl.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+                        radialControl.center = CGPointMake(UIScreen.mainScreen().bounds.size.width * 0.5,
+                            UIScreen.mainScreen().bounds.height * 0.5)
+                        
+                        self.view.addSubview(radialControl)
                     }
-                    
-                    var radialControl: SegmentedRadialSlider = SegmentedRadialSlider(cells: cells)
-                    
-                    radialControl.center = CGPointMake(UIScreen.mainScreen().bounds.size.width * 0.5,
-                        UIScreen.mainScreen().bounds.height * 0.5)
-                    radialControl.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
-                    
-                    root.addSubview(radialControl)
                 }
             }
+            catch let error as NSError { print(error.description) }
         }
     }
     
     
-    // MARK: - 
+    // MARK: - Utility
     
     func valueChanged(control: SegmentedRadialSlider) {}
 }
