@@ -45,7 +45,7 @@ class RootController: UIViewController {
                         
                         let radialControl: SegmentedRadialSlider = SegmentedRadialSlider(cells: cells)
                         
-                        radialControl.addTarget(self, action: "valueChanged:", forControlEvents: UIControlEvents.ValueChanged)
+                        radialControl.addTarget(self, action: #selector(RootController.valueChanged(_:)), forControlEvents: UIControlEvents.ValueChanged)
                         radialControl.center = CGPointMake(UIScreen.mainScreen().bounds.size.width * 0.5,
                             UIScreen.mainScreen().bounds.height * 0.5)
                         
